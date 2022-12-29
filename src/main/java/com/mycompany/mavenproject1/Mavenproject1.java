@@ -5,6 +5,8 @@
 
 package com.mycompany.mavenproject1;
 
+import java.util.Scanner;
+
 /**
  *
  * @author tohid
@@ -13,5 +15,50 @@ public class Mavenproject1 {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        
+        // TestClass myFirstObject = new TestClass();
+        
+        
+        
     }
+    
+    
+}
+class TestClass{
+
+
+    public void howToGetInput(){
+        // imports:
+        // import java.util.Scanner;
+
+        Scanner userInput = new Scanner(System.in);
+        
+        String  testUserInput1 = userInput.nextLine();
+        int     testUserInput2 = userInput.nextInt();
+        
+        
+        
+        System.out.println("inputs: \nA: "+testUserInput1+"\nB: "+testUserInput2);
+        userInput.close();
+        
+        
+        
+        
+        Scanner myCustomInput = new Scanner("test1/1234/test3");
+        
+        myCustomInput.useDelimiter("/");
+        
+        String  testCustomInput1 = myCustomInput.next();
+        int     testCustomInput2 = Integer.parseInt(myCustomInput.next());
+        String  testCustomInput3 = myCustomInput.next();
+
+        
+        
+        System.out.println("custom inputs: \nA: "+testCustomInput1+"\nB: "+testCustomInput2+"\nC: "+testCustomInput3);
+        myCustomInput.close();
+
+    }
+    
+    
+    
 }
