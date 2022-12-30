@@ -6,6 +6,7 @@
 package com.mycompany.mavenproject1;
 
 import java.util.Scanner;
+import java.text.MessageFormat;
 
 /**
  *
@@ -16,7 +17,15 @@ public class Mavenproject1 {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         
-        // TestClass myFirstObject = new TestClass();
+        TestClass myFirstObject = new TestClass();
+        myFirstObject.howToUseFormat();
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -26,7 +35,8 @@ public class Mavenproject1 {
 }
 class TestClass{
 
-
+    
+    
     public void howToGetInput(){
         // imports:
         // import java.util.Scanner;
@@ -59,6 +69,19 @@ class TestClass{
 
     }
     
-    
+    public void howToUseFormat(){
+        System.out.format("Double: %d, String: %s, Float: %f, Boolean: %b, Char: %c \n", 
+                                        13452,"hi",3.14,true,'X');
+        
+        System.out.println(
+                String.format("Double: %d, String: %s, Float: %f, Boolean: %b, Char: %c \n", 
+                                        13452,"hi",3.14,true,'X')
+        );
+        
+        // imports:
+        // import java.text.MessageFormat;
+        String x = MessageFormat.format("test {0}, and two {1} ", 123431321, "'hi'");
+        System.out.println(x);
+    }
     
 }
