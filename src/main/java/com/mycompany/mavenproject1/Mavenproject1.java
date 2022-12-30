@@ -34,7 +34,8 @@ public class Mavenproject1 {
     }
     
     public static void testRifle(){
-        Rifle Ak_47 = new Rifle();
+        // :D
+        Gun Ak_47 = new Rifle();
         for(int i =0; i<21; i++){
             Ak_47.shoot();  
             if(i%5==0)
