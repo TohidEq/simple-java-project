@@ -21,6 +21,7 @@ public class Mavenproject1 {
         myFirstObject.howToUseFormat();
         
         
+        testRifle();
         
         
         
@@ -28,6 +29,26 @@ public class Mavenproject1 {
         
         
         
+        
+        
+    }
+    
+    public static void testRifle(){
+        Rifle Ak_47 = new Rifle();
+        for(int i =0; i<21; i++){
+            Ak_47.shoot();  
+            if(i%5==0)
+                Ak_47.displayStatus();  
+        }
+        Ak_47.reload();
+        Ak_47.displayStatus();
+        for(int i =0; i<21; i++){
+            Ak_47.shoot();
+            if(i%5==0)
+                Ak_47.displayStatus(); 
+        }
+        Ak_47.safeReload();
+        Ak_47.displayStatus();
         
     }
     
@@ -83,5 +104,68 @@ class TestClass{
         String x = MessageFormat.format("test {0}, and two {1} ", 123431321, "'hi'");
         System.out.println(x);
     }
+    
+}
+
+
+
+
+
+// interface:
+interface InterfaceNum1{
+    public void shoot();
+}
+
+/*  interface <- interface (extends)  */
+interface InterfaceNum2 extends InterfaceNum1{
+    public void reload();
+}
+
+
+/*  abstract class <- interface (impliments)  */
+abstract class Gun implements InterfaceNum2{
+    int bullets =30;
+    int magazine = 120;
+    public abstract void safeReload();
+    public abstract void displayStatus();
+}
+
+/*  class <- abstract class (extends and @Override)   */
+class Rifle extends Gun{
+    
+    public void shoot(){
+        if(bullets==0)
+            System.out.println("no bullets");
+        else{
+            System.out.println("Bang!");
+            bullets-=1;
+        }
+    }
+    
+    public void reload(){
+        if(magazine>=30 && bullets!=30){
+            magazine-=30;
+            bullets =30;
+            System.out.println("Reloaded!");
+        }
+    
+    }
+    
+    
+    // its not safe... but, its ok :)
+    @Override
+    public void safeReload(){
+        if(magazine>=30 && bullets!=30){
+            magazine-=30-bullets;
+            bullets=30;
+            System.out.println("Safe Reloaded!");
+        }
+    }
+    
+    @Override
+    public void displayStatus(){
+        System.out.println("Bullets: "+bullets+ ", Magazine: "+magazine);
+    }
+    
     
 }
