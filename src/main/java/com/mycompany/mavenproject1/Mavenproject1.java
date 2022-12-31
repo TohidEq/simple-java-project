@@ -18,10 +18,10 @@ public class Mavenproject1 {
         System.out.println("Hello World!");
         
         TestClass myFirstObject = new TestClass();
-        myFirstObject.howToUseFormat();
+        //myFirstObject.howToUseFormat();
+        myFirstObject.stringMethods();
         
-        
-        testRifle();
+        //testRifle();
         
         
         
@@ -104,6 +104,62 @@ class TestClass{
         // import java.text.MessageFormat;
         String x = MessageFormat.format("test {0}, and two {1} ", 123431321, "'hi'");
         System.out.println(x);
+    }
+    
+    public void stringMethods(){
+        String mystr = "Hello, World!";
+        
+        
+        // #1 foreach:
+        System.out.println("#1");
+        for(String x:mystr.split("")){
+            System.out.println(x);
+        }
+        
+        // #2
+        System.out.println("#2");
+        char arr2[] = mystr.toCharArray();
+        for(char x:arr2){
+            System.out.println(x);
+        }
+        
+        
+        // #3 switch case:
+        System.out.println("switch case:");
+        for(char x:arr2)
+            switch(x){
+                case 'l':
+                    System.out.println("l founded");
+                    break;
+                case ' ':
+                    System.out.println("spase founded");
+                    break;
+                default:
+                    System.out.println("nothing");
+            }
+        
+        
+        // #4
+        int myint4 = Integer.parseInt("1234");
+        
+        //equals()
+        if("test".equals("test"))
+            System.out.println("test == test");
+        
+        //length()
+        System.out.println("legth of 'hello': "+ 
+                            "hello".length());
+        
+        //charAt()
+        System.out.println("\"hello\".charAt(2): "+
+                            "hello".charAt(2));
+        
+        //replace():
+        System.out.println(
+                mystr.replace("l", "x")
+        );
+        
+        
     }
     
 }
