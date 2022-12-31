@@ -5,8 +5,10 @@
 
 package com.mycompany.mavenproject1;
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.text.MessageFormat;
+import java.util.Random;
 
 /**
  *
@@ -19,13 +21,22 @@ public class Mavenproject1 {
         
         TestClass myFirstObject = new TestClass();
         //myFirstObject.howToUseFormat();
-        myFirstObject.mathMethods();
+        //myFirstObject.tryCatchFinally();
+        
+        //test throws:
+        myFirstObject.testThrows(); 
+        System.out.println("normal flow...");  
+          
         
         //testRifle();
         
         
         
-        
+        //Random:
+        Random rndm = new Random();
+        /*  10 <= rndmNum < 15 */
+        int rndmNum = rndm.nextInt(10, 15); 
+        System.out.println(rndmNum);
         
         
         
@@ -175,6 +186,45 @@ class TestClass{
         System.out.println("round(3.5): "+Math.round(3.5));
         System.out.println("round(3.53): "+Math.round(3.53));
     }
+    
+    public void tryCatchFinally(){
+        Scanner input = new Scanner(System.in);
+        
+        try {
+            int x = input.nextInt();
+            if(x==0)
+                throw new ArithmeticException("0 is not valid");
+            
+            System.out.println(36+"/"+x+"= "+ 36.0/x);
+        } catch (Exception e) {
+            System.out.println("we have error: "+ e.getMessage()+"\n\n>> more informations:");
+            e.printStackTrace();
+        } finally {
+            input.close();
+            System.out.println("input closed");
+        }
+        
+        
+        
+        
+    }
+
+    
+    
+    //throws:
+    void func1()throws IOException{  
+        throw new IOException("device error");//checked exception  
+    }  
+    void func2()throws IOException{  
+        func1();  
+    }  
+    void testThrows(){  
+        try{  
+            func2();  
+        }catch(Exception e){
+            System.out.println("exception handled");
+        }  
+    }  
     
 }
 
