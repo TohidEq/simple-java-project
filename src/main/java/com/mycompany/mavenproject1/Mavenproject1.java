@@ -19,7 +19,7 @@ public class Mavenproject1 {
         
         TestClass myFirstObject = new TestClass();
         //myFirstObject.howToUseFormat();
-        myFirstObject.stringMethods();
+        myFirstObject.mathMethods();
         
         //testRifle();
         
@@ -160,6 +160,20 @@ class TestClass{
         );
         
         
+    }
+    
+    public void mathMethods(){
+        System.out.println("max(2,5): "+Math.max(2, 5));
+        
+        System.out.println("min(2,5): "+Math.min(2, 5));
+        
+        System.out.println("pow(3,4)[3 be tavaane 4]: "+Math.pow(3, 4));
+        
+        System.out.println("sqrt(36)[jazre 36]: "+Math.sqrt(36));
+        
+        System.out.println("round(3.33)[gerd kardan]: "+Math.round(3.33));
+        System.out.println("round(3.5): "+Math.round(3.5));
+        System.out.println("round(3.53): "+Math.round(3.53));
     }
     
 }
